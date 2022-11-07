@@ -11,5 +11,18 @@
     <header>
         <h1>fillername title</h1>
     </header>
+    <main>
+        <form action="/userlogin.php" method="post">
+            <fieldset>
+                <label for="username">User E-mail:</label>
+            <input type="email" name="username" id="username">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+            <button type="submit">Login</button>
+            </fieldset>
+            <p>New user?</p>
+            <button type="submit" formaction="/userCreation.php">Create Account</button>
+        </form>
+    </main>
 </body>
 </html>
