@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jordan Chen">
+    <title>Registration Page</title>
+</head>
 
+<body>
+    <main>
+        
+    <div class="header">
+        <a href="index.html"> Home</a> 
+    </div>
+
+    <div class="createQuestion">
+        <center><h1>Create a Question</h1></center>
+    <hr>
+    
+    <div class="createquestionfield">
+        <label for="questionfield">Enter your question below:</label>
+        <br>
+        <textarea id="questionfield" name="questionfield" rows="5" cols="50">
+        </textarea>
+    </div>
+   
+    <hr>
+    
+    <div class="correctanswerfield">
+        <label> Correct Answer </label>
+        <input type="text" id="correctanswer" placeholder="Enter correct answer">
+    </div>
+    
+    <br>
+    
+    <div class="incorrectanswerfield">
+        <label> Incorrect Answer 1 </label>
+        <input type="text" id="incorrectanswer1" placeholder="Enter incorrect answer">
+    </div>     
+       
+    <br>
+        
+    <div class="incorrectanswerfield">
+        <label> Incorrect Answer 2 </label>
+        <input type="text" id="incorrectanswer2" placeholder="Enter incorrect answer">
+    </div> 
+    
+    <br>
+      
+    <div class="incorrectanswerfield">
+        <label> Incorrect Answer 3 </label>
+        <input type="text" id="incorrectanswer3" placeholder="Enter incorrect answer">
+    </div>
+    
+    <br>
+    <hr>
+    
+    <div>
+        <button type="submit" formaction="/questionCreate.php">Create Account</button>
+    </div>
+
+   </main>
+</body>
+</html>
