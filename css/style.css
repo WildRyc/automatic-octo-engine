@@ -1,3 +1,15 @@
+/*
+Assessment: Assignment 2
+Student Names: Jordan Chen, Kyle Ryc, Renato Simoes
+Student Number: 041050455, 040778889, 040908766
+Lab Professor: Hala Own
+Due Date: December 4th 2022
+*/
+
+/*
+Content created by: Renato Simoes
+*/
+
 head, body{
     position:relative; justify-content:80px;
     margin: auto;
@@ -16,7 +28,22 @@ fieldset {
     block-size: 180px;
 }
 
-#username, #password {
+#regfield {
+    background-color: white;
+    display: block;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    block-size: 450px;
+}
+
+img {
+    float: center;
+    margin: 10px;
+    max-width: 100%;
+}
+
+#username, #password, #password2, #firstname, #lastname {
     display: block;
     width: 10cm;
     margin-top: 10px;
