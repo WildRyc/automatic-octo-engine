@@ -12,8 +12,8 @@ let passwordErrorMessag="🗙 Please submit a password that is at least 6 charac
 let password2ErrorMessage="🗙 Please submit the same password twice";
 // regex string from https://emailregex.com/
 let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-let firstnameRegex = /^[a-zA-Z]$/;
-let lastnameRegex = /^[a-zA-Z]$/;
+let firstnameRegex = /^[a-z ,.'-]+$/i;
+let lastnameRegex = /^[a-z ,.'-]+$/i;
 let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
 
