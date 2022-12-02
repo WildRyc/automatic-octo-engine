@@ -1,3 +1,11 @@
+<!--
+Assessment: Assignment 2
+Student Names: Jordan Chen, Kyle Ryc, Renato Simoes
+Student Number: 041050455, 040778889, 040908766
+Lab Professor: Hala Own
+Due Date: December 4th 2022
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,73 +13,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Jordan Chen">
-    <title>Registration Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>QuizBud: Make Question Page</title>
 </head>
-
 <body>
+    <header>
+        <img src="images/Logo.png" alt="Logo">
+    </header>
     <main>
-        
-    <div class="header">
-        <a href="index.html"> Home</a> 
-    </div>
-
+        <fieldset id="regfield">
     <div class="createQuestion">
-        <center><h1>Create a Question</h1></center>
+        <h1>Create a Question</h1>
+    </div>
     <hr>
-    
     <div class="createquestionfield">
         <label for="class">Select which class this is for</label>
         <select name="clas" id="classid">
-        <option value="1">Class 1</option>
-        <option value="2">Class 2</option>
-        <option value="3">Class 3</option>
-        <option value="4">Class 4</option>
+            <option value="1">Class 1</option>
+            <option value="2">Class 2</option>
+            <option value="3">Class 3</option>
+            <option value="4">Class 4</option>
         </select>
         <br>
         <label for="questionfield">Enter your question below:</label>
-        
         <br>
-        <textarea id="questionfield" name="questionfield" rows="5" cols="50">
-        </textarea>
+            <textarea id="questionfield" name="questionfield" rows="5" cols="50">
+            </textarea>
     </div>
-   
     <hr>
-    
     <div class="correctanswerfield">
-        <label> Correct Answer </label>
+        <label for="correctanswer"> Correct Answer </label>
         <input type="text" id="correctanswer" placeholder="Enter correct answer">
     </div>
-    
     <br>
-    
     <div class="incorrectanswerfield">
-        <label> Incorrect Answer 1 </label>
+        <label for="incorrectanswer1"> Incorrect Answer 1 </label>
         <input type="text" id="incorrectanswer1" placeholder="Enter incorrect answer">
-    </div>     
-       
+    </div>
     <br>
-        
     <div class="incorrectanswerfield">
-        <label> Incorrect Answer 2 </label>
+        <label for="incorrectanswer2"> Incorrect Answer 2 </label>
         <input type="text" id="incorrectanswer2" placeholder="Enter incorrect answer">
     </div> 
-    
     <br>
-      
     <div class="incorrectanswerfield">
-        <label> Incorrect Answer 3 </label>
+        <label for="incorrectanswer3"> Incorrect Answer 3 </label>
         <input type="text" id="incorrectanswer3" placeholder="Enter incorrect answer">
     </div>
-    
     <br>
     <hr>
-    
     <div>
-        <button type="submit" formaction="/questionCreate.php">Create Account</button>
+        <button type="submit" formaction="/questionCreate.php">Create Question</button>
+        <a a href="index.html"><button type="home">Home</button></a>
     </div>
-
-   </main>
+    </fieldset>
+    </main>
 </body>
-    
 </html>
-
