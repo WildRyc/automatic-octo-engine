@@ -1,0 +1,59 @@
+<!--
+Assessment: Assignment 2
+Student Names: Jordan Chen, Kyle Ryc, Renato Simoes
+Student Number: 041050455, 040778889, 040908766
+Lab Professor: Hala Own
+Due Date: December 4th 2022
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jordan Chen">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Quiz Generator</title>
+</head>
+<body>
+   <form>
+    <main>
+    <fieldset id="regfield">
+    <div class="createQuestion">
+        <h1>Quiz Generator</h1>
+    </div>
+    
+    <hr>
+   
+    <div class="selectclass">
+        <label for="classquiz">Select which class this quiz is for</label>
+        <br>
+        <select name="classquiz" id="classid">
+            <option value="1">Class 1</option>
+            <option value="2">Class 2</option>
+            <option value="3">Class 3</option>
+            <option value="4">Class 4</option>
+        </select>
+        <br>
+    </div>
+        
+    <br>
+    
+    <div class="selectquestions">
+        <label for="questionquiz">Generate how many questions?</label>
+        <br>
+        <select name="questionquiz" id="numquestions">
+            <option value="1">1 Question</option>
+            <option value="2">2 Questions</option>
+            <option value="3">3 Questions</option>
+            <option value="4">4 Questions</option>
+        </select>
+        
+    <br>
+    <br>
+        
+    <div>
+        <button type="submit" formaction="/generateQuiz.php">Generate Quiz</button>
+    </div>
+    
