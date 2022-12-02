@@ -32,16 +32,22 @@ fieldset {
     margin-top: 10px;
     margin-bottom: 10px;
     block-size: 180px;
+    resize: both;
+    overflow: auto;
 }
 
 #regfield {
     background-color: white;
-    display: block;
+    display: inline-block;
     width: 50%;
     margin-top: 10px;
     margin-bottom: 10px;
     block-size: 450px;
     flex-wrap: wrap;
+    position: relative;
+    white-space: wrap;
+    resize: both;
+    overflow: auto;
 }
 
 img {
@@ -69,12 +75,6 @@ img {
     width: 5cm;
     font-size: medium;
     margin: auto;
-}
-
-.warning{
-    border-color: red;
-    color: red;
-    font-size: smaller;
 }
 
 button {
