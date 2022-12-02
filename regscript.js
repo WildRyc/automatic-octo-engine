@@ -35,7 +35,7 @@ let passwordError = document.createElement('p');
 let password2Error = document.createElement('p');
 let termsError = document.createElement('p');
 const errorList = [emailError, firstnameError, lastnameError, passwordError, password2Error, termsError];
-const tagList = ['#email', '#firstname', '#lastname', '#password', '#password2'];
+const tagList = ['#username', '#firstname', '#lastname', '#password', '#password2'];
 
 
 for (i = 0; i < errorList.length; i++) {
