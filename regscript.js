@@ -77,7 +77,7 @@ function validateLastname(){
     lasError = defaultMessage;
     }
     else {
-    lasError = lasstnameErrorMessage;
+    lasError = lastnameErrorMessage;
     }
     return lasError;
 }
