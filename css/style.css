@@ -10,13 +10,19 @@ Due Date: December 4th 2022
 Content created by: Renato Simoes
 */
 
-head, body{
-    position:relative; justify-content:80px;
+head, body {
+    position:static; justify-content:80px;
     margin: auto;
     max-width: 500px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     background-color: rgb(208, 216, 221);
+    text-align: left;
+}
+
+textarea {
+    resize: none;
+    font-size: medium;
 }
 
 fieldset {
@@ -35,6 +41,7 @@ fieldset {
     margin-top: 10px;
     margin-bottom: 10px;
     block-size: 450px;
+    flex-wrap: wrap;
 }
 
 img {
@@ -49,6 +56,19 @@ img {
     margin-top: 10px;
     margin-bottom: 5px;
     block-size: 25px;
+}
+
+#classid {
+    display: float;
+    width: 4cm;
+    font-size: medium;
+}
+
+#correctanswer, #incorrectanswer1, #incorrectanswer2, #incorrectanswer3 {
+    display: static;
+    width: 5cm;
+    font-size: medium;
+    margin: auto;
 }
 
 .warning{
@@ -70,6 +90,12 @@ button:first-of-type {
 }
 
 button[type="submit"]:hover{
+    border: 2px solid #1E90FF;
+    background-color: transparent;
+    color: #1E90FF;
+}
+
+button[type="home"]:hover{
     border: 2px solid #1E90FF;
     background-color: transparent;
     color: #1E90FF;
