@@ -17,7 +17,19 @@
 <div class="dashboard">
     <div><h3>Courses</h3>
     <?php
-    
+    include_once('serverconnect.php');
+    echo "<p>Test with Select all users</p>";
+    $query = "SELECT * FROM users";
+
+
+    if ($stmt = $con->prepare($query)) {
+        $stmt->execute();
+        $stmt->bind_result($field1, $field2);
+        while ($stmt->fetch()) {
+            printf("%s, %s\n", $field1, $field2);
+        }
+        $stmt->close();
+    };
     ?>
     </div>
     <div></div>
