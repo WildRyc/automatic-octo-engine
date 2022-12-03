@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $verifyUser = "Select * from users where 
     email = $email";
-    $verifyCheck = mysqli_query($con, $verifyCheck);
+    $verifyCheck = mysqli_query($con, $verifyUser);
     
     $anythingThere = mysqli_num_rows($verifyCheck);
     if ($row < 1){
