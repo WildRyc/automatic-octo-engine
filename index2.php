@@ -24,12 +24,14 @@ if (isset($_SESSION["count"])) {
             <fieldset>
                 <label for="username">User E-mail:</label>
                 <input type="email" name="username" id="username">
+                <br>
             <label for="password">Password:</label>
             <input type="password" name="password" id="password">
+            <br>
             <button type="submit">Login</button>
             </fieldset>
             <p>New user?</p>
-            <button type="submit" formaction="userCreation.php">Create Account</button>
+            <button type="submit" formaction="userCreation.php" method="post">Create Account</button>
         </form>
     </main>
 </body>
