@@ -50,6 +50,20 @@ fieldset {
     overflow: auto;
 }
 
+#genquizfield {
+    background-color: white;
+    display: inline-block;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    block-size: 450px;
+    flex-wrap: wrap;
+    position: relative;
+    white-space: wrap;
+    resize: both;
+    overflow: auto;
+}
+
 img {
     float: center;
     margin: 10px;
