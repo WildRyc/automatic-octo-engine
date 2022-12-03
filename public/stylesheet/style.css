@@ -91,6 +91,12 @@ img {
     margin: auto;
 }
 
+.incomplete {
+    border-color: red;
+    color: red;
+    font-size: smaller;
+}
+
 button {
     color: white;
     border-radius: 10px;
