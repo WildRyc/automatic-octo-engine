@@ -11,25 +11,21 @@
 </head>
 <body>
     <?php
-    include_once('header.php');
+    include('..\private\functions\header.php');
     ?>
     
 <div class="dashboard">
     <div><h3>Courses</h3>
     <?php
-    include_once('serverconnect.php');
+    include_once('..\private\functions\serverconnect.php');
     echo "<p>Test with Select all users</p>";
     $query = "SELECT * FROM users";
 
 
-    if ($stmt = $con->prepare($query)) {
-        $stmt->execute();
-        $stmt->bind_result($field1, $field2);
-        while ($stmt->fetch()) {
-            printf("%s, %s\n", $field1, $field2);
-        }
-        $stmt->close();
-    };
+    $result = $con->query($query);
+    while($row = $result->fetch_assoc()) {
+        echo "first name: " . $row['firstname']; 
+    }
     ?>
     </div>
     <div></div>
@@ -37,7 +33,7 @@
     <div></div>
 </div>
     <?php
-    include_once('footer.php');
+    include_once('..\private\functions\footer.php');
     ?>
 </body>
 </html>

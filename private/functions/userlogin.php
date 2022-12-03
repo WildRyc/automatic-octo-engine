@@ -13,9 +13,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $_SESSION['firstname'] = $verifyCheck['firstname'];
     $_SESSION['email'] = $verifyCheck['email'];
     $_SESSION['lastname'] = $verifyCheck['lastname'];
-    header('location:dashboard.php');
+    header('location:..\public\dashboard.php');
     } else {
-    header('location:./readme.md');
+    header('location:..\public\dashboard.php'); // change to index when it actually works.
     }
 }
 
