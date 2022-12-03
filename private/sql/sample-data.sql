@@ -32,7 +32,7 @@ INSERT INTO users VALUES
 
 INSERT INTO classes values
 (1, 1, "CST8285", "Web Programming", sysdate(), 1),
-(2, 1, "CST8284", "Object Oriented Programming", sysdate(), 1)
+(2, 1, "CST8284", "Object Oriented Programming", sysdate(), 1),
 (3, 1, "CST8102", "Operating Systems Fund", sysdate(), 1),
 (4, 2, "CST23855", "Database Systems", sysdate(), 1),
 (5, 2, "MAT8001C", "Technical Mathematics", sysdate(), 2),
