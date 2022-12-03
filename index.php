@@ -25,8 +25,10 @@ Due Date: December 4th 2022
             <fieldset>
                 <label for="username">User E-mail:</label>
             <input type="email" name="username" id="username">
+            <br>
             <label for="password">Password:</label>
             <input type="password" name="password" id="password">
+            <br>
             <button type="submit">Login</button>
             </fieldset>
             <p>New user?</p>
