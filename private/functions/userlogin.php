@@ -4,18 +4,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $verifyUser = "Select * from users where 
-    email = $email && password = $password";
+    $verifyUser = "SELECT * from users where 
+    email = '$email' AND password = '$password'";
     $verifyCheck = mysqli_query($con, $verifyUser);
-    $length = mysqli_num_rows($result);
+    $length = mysqli_num_rows($verifyCheck);
 
-    if ($length > 0) {
+    if ($length == 1) {
     $_SESSION['firstname'] = $verifyCheck['firstname'];
     $_SESSION['email'] = $verifyCheck['email'];
     $_SESSION['lastname'] = $verifyCheck['lastname'];
     header('location:dashboard.php');
     } else {
-    header('location:index.php');
+    header('location:./readme.md');
     }
 }
 
