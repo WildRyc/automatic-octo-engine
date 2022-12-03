@@ -46,7 +46,7 @@ Due Date: December 4th 2022
             <input type="password" name="password2" id="password2">
         </p>
         <br>
-        <button type="submit" formaction="usercreation.php" onclick="validate()">Create Account</button>
+        <button type="submit" formaction="usercreation.php" method="post">Create Account</button>
         </fieldset>
         </form>
     </main>
