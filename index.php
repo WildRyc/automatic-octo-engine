@@ -33,5 +33,6 @@ Due Date: December 4th 2022
             <button type="submit" formaction="registration.php">Create Account</button>
         </form>
     </main>
+    <a href="dashboard.php">click here</a>
 </body>
 </html>

@@ -1,39 +1,41 @@
 // written by Kyle Ryc
 // for CST8285
+//modified by Renato Simoes
 
 //define a global variables
 let thisForm = document.forms[0];
 let defaultMessage="";
-let termsErrorMessage= "🗙 Please submit to the terms and conditions to continue";
-let loginErrorMessage="🗙 Please submit a valid login (only numbers, UPPERCASE letters, or lowercase letters";
-let passwordErrorMessag="🗙 Please submit a password that is at least 6 characters long, and contains at least 1 uppercase letter and 1 lowercase letter";
-let secondPasswordErrorMessage="🗙 Please submit the same password twice";
 let emailErrorMessage="🗙 Please submit a valid email";
+let firstnameErrorMessage="🗙 Please submit a valid first name";
+let lastnameErrorMessage="🗙 Please submit a valid last name";
+let passwordErrorMessag="🗙 Please submit a password that is at least 6 characters long, and contains at least 1 uppercase letter and 1 lowercase letter";
+let password2ErrorMessage="🗙 Please submit the same password twice";
 // regex string from https://emailregex.com/
 let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-let loginRegex = /^[a-zA-Z0-9]{1,19}$/;
-// regex based on https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
+let firstnameRegex = /^[a-z ,.'-]+$/i;
+let lastnameRegex = /^[a-z ,.'-]+$/i;
 let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-//get all the form inputs
-let emailInput = document.querySelector('#email');
-let loginInput = document.querySelector('#login');
-let passwordInput = document.querySelector('#pass');
-let password2Input = document.querySelector('#pass2');
-let newsletterInput = document.querySelector('#newsletter');
-let termsInput = document.querySelector('#terms');
 
-let loginInputValue = loginInput.value;
-const inputList = [emailInput,loginInput,passwordInput, password2Input, termsInput, newsletterInput];
+//get all the form inputs
+let emailInput = document.querySelector('#username');
+let firstnameInput = document.querySelector('#firstname');
+let lastnameInput = document.querySelector('#lastname');
+let passwordInput = document.querySelector('#password');
+let password2Input = document.querySelector('#password2');
+
+let emailInputValue = emailInput.value;
+const inputList = [emailInput, firstnameInput, lastnameInput, passwordInput, password2Input];
 
 //create some variables for error paragraphs
 let emailError = document.createElement('p');
-let loginError = document.createElement('p');
+let firstnameError = document.createElement('p');
+let lastnameError = document.createElement('p');
 let passwordError = document.createElement('p');
 let password2Error = document.createElement('p');
 let termsError = document.createElement('p');
-const errorList = [emailError, loginError, passwordError, password2Error, termsError];
-const tagList = ['#email', '#login', '#pass', '#pass2', '#terms'];
+const errorList = [emailError, firstnameError, lastnameError, passwordError, password2Error, termsError];
+const tagList = ['#username', '#firstname', '#lastname', '#password', '#password2'];
 
 
 for (i = 0; i < errorList.length; i++) {
@@ -54,19 +56,30 @@ function validateEmail(){
     return emaError;
 }
 
-
-
-//  should validate if the login passed regex check
-function validateLogin(){
-    let login = loginInput.value;
-    let logError;
-    if(loginRegex.test(login)){
-    logError = defaultMessage;
+//  should validate if the first name passed regex check
+function validateFirstname(){
+    let firstname = firstnameInput.value;
+    let firError;
+    if(firstnameRegex.test(firstname)){
+    firError = defaultMessage;
     }
     else {
-    logError = loginErrorMessage;
+    firError = firstnameErrorMessage;
     }
-    return logError;
+    return firError;
+}
+
+//  should validate if the first name passed regex check
+function validateLastname(){
+    let lastname = lastnameInput.value;
+    let lasError;
+    if(lastnameRegex.test(lastname)){
+    lasError = defaultMessage;
+    }
+    else {
+    lasError = lastnameErrorMessage;
+    }
+    return lasError;
 }
 
 // should validate if password passes regex check
@@ -93,13 +106,6 @@ function validatePassword2(){
     }
     return pass2Error;
 }
-// this function should validate if the terms box has been checked
-function validateTerms(){
-    if (termsInput.checked)
-    return defaultMessage;
-    else
-    return termsErrorMessage;
-}
 
 // change the border of the element if there is an issue with it's content
 function borderChange (elementInput, elementError) {
@@ -115,10 +121,10 @@ function borderChange (elementInput, elementError) {
 function validate() {
     let validated = true;
     let emailValidation=validateEmail();
-    let loginValidation=validateLogin();
+    let firstnameValidation=validateFirstname();
+    let lastnameValidation=validateLastname();
     let passwordValidation=validatePassword();
     let secondPasswordValidation=validatePassword2();
-    let termsValidation=validateTerms();
     
     if(emailValidation !==defaultMessage) {
         emailError.textContent = emailValidation;
@@ -126,15 +132,15 @@ function validate() {
         validated = false;
     }
 
-    if(termsValidation !==defaultMessage) {
-        termsError.textContent=termsValidation;
-        borderChange(termsInput, termsError);
+    if (firstnameValidation !==defaultMessage) {
+        firstnameError.textContent = firstnameValidation;
+        borderChange(firstnameInput, firstnameError);
         validated = false;
     }
 
-    if (loginValidation !==defaultMessage) {
-        loginError.textContent = loginValidation;
-        borderChange(loginInput, loginError);
+    if (lastnameValidation !==defaultMessage) {
+        lastnameError.textContent = lastnameValidation;
+        borderChange(lastnameInput, lastnameError);
         validated = false;
     }
 
@@ -151,26 +157,12 @@ function validate() {
     }
 
     if (validated) {
-        loginInputValue = loginInput.value.toLowerCase();
+        emailInputValue = emailInput.value.toLowerCase();
     }
     return validated;
 }
 
-// event listener to empty the text inside each paragraph when reset, and change border
-function resetFormError() {
-    for (i = 0; i < errorList.length; i++) {
-            thisError = errorList[i];
-            thisInput = inputList[i];
-            thisError.textContent = defaultMessage;
-            borderChange(thisInput, thisError);
-        }
-    }
-
-
 // Event Listeners
-
-// triggers on form reset, clears all the fields
-thisForm.addEventListener('reset',resetFormError);
 
 //This group of listeners updates the inputs while the user enages with the form
 emailInput.addEventListener("blur", ()=>{
@@ -181,11 +173,19 @@ emailInput.addEventListener("blur", ()=>{
     }
 });
 
-loginInput.addEventListener("blur", ()=>{
-    let checkLogin=validateLogin();
-    if(checkLogin == defaultMessage){
-        loginError.textContent = defaultMessage;
-        borderChange(loginInput,loginError);
+firstnameInput.addEventListener("blur", ()=>{
+    let checkFirstname=validateFirstname();
+    if(checkFirstname == defaultMessage){
+        firstnameError.textContent = defaultMessage;
+        borderChange(firstnameInput,firstnameError);
+    }
+});
+
+lastnameInput.addEventListener("blur", ()=>{
+    let checkLastname=validateLastname();
+    if(checkLastname == defaultMessage){
+        lastnameError.textContent = defaultMessage;
+        borderChange(lastnameInput,lastnameError);
     }
 });
 
@@ -204,23 +204,3 @@ password2Input.addEventListener("blur", ()=>{
         borderChange(password2Input,password2Error);
     }
 });
-
-termsInput.addEventListener("change", (newsletterAccepted)=>{
-    if(newsletterAccepted.target.checked){
-        termsError.textContent=defaultMessage;
-        borderChange(termsInput, termsError);
-    }
-});
-
-// brief warning about spam
-newsletterInput.addEventListener('change', (newsletterAccepted)=>{
-    if(newsletterAccepted.target.checked)
-    {
-    alert("Make sure you add newsletter@kittensubsription.com to your email whitelist ");
-    }
-});
-
-
-
-
-

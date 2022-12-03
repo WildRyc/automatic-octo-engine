@@ -12,19 +12,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     $anythingThere = mysqli_num_rows($verifyCheck);
     if ($row < 1){
-        mysqli_query($con,"INSERT INTO users   
+        $creation = "INSERT INTO users   
         (firstname, lastname, email, password,school) 
         VALUES ($firstname, $lastname, $email,
-        $password, 1)");
-        
+        $password, 1)";   
     }
 
     
 
-if ($con->query($sql) == TRUE) {
+if ($con->query($creation) == TRUE) {
     echo "New user created successfully";
-}else {
-    echo "Error: " . $sql . "<br>" . $con->error;
+    header('location:dashboard.php');
+    } else {
+    header('location:index.php');
+    echo "Error: " . $creation . "<br>" . $con->error;
 }
 }
 $con->close();
