@@ -13,8 +13,8 @@ Due Date: December 4th 2022
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Jordan Chen">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="regscript.js" defer></script>
+    <link rel="stylesheet" href="./stylesheet/style.css">
+    <script src="./scripts/regscript.js" defer></script>
     <title>QuizBud: Registration Page</title>
 </head>
 <body>
