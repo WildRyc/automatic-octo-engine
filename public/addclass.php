@@ -7,11 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizBud - Add a Class</title>
-</head>
-<body>
+
     <?php include_once('..\private\functions\header.php');
     ?>
-    <form action=".\public\classadder.php" method="POST">
+    <form action=".\classadder.php" method="POST">
         <label for="school">Choose a school:</label>
         <select name="schoolId" id="schoolId">
         <?php
@@ -31,13 +30,13 @@
         <input list="classNames" name="className" id="className">
         <datalist id="classnames">
         <?php        
-        $query = "SELECT classname FROM classes";
+        $query = "SELECT classname, id FROM classes";
 
         if ($stmt = $con->prepare($query)) {
             $stmt->execute();
             $stmt->bind_result($classname);
             while ($stmt->fetch()) {
-                printf("<option value=\"%s\">\n", $classname);
+                printf("<option value=\"%s %s\">\n", $classname);
             }
             $stmt->close();
         }
