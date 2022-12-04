@@ -1,3 +1,4 @@
+//this function should validated an username
 function validateForm() {
     let x = document.forms["myForm"]["username"].value;
     if (x == "") {
@@ -6,6 +7,7 @@ function validateForm() {
     }
   }
 
+  //this field should validate the password
   function validateForm() {
   let x = document.forms["myForm"]["password"].value;
     if (x == "") {

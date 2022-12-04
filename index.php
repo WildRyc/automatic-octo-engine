@@ -14,7 +14,7 @@ Due Date: December 4th 2022
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kyle Ryc">
     <link rel="stylesheet" href="public/stylesheet/style.css">
-    <script src="validation.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
     <script src="./scripts/regscript.js" defer></script>
     <title>QuizBud: Landing Page</title>
     <link rel="icon" type="image/x-icon" href="./public/images/favicon.ico">
