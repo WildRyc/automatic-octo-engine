@@ -15,18 +15,13 @@
     ?>
     
 <div class="dashboard">
-    <div><h3>Courses</h3>
+    <div id="courses"><h3>Courses</h3>
+    <ul>
     <?php
-    include_once('..\private\functions\serverconnect.php');
-    echo "<p>Test with Select all users</p>";
-    $query = "SELECT * FROM users";
-
-
-    $result = $con->query($query);
-    while($row = $result->fetch_assoc()) {
-        echo "first name: " . $row['firstname']; 
-    }
+    include_once('..\private\functions\courses.php');
     ?>
+    <li><a href="./classes.php">Add or change a class?</a></li>
+    </ul>
     </div>
     <div></div>
     <div></div>

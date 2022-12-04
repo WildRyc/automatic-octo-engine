@@ -1,22 +1,47 @@
 <?php 
+//Connect to the server
 include_once("serverconnect.php");
+
+
+//Only do if the form sent via POST
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $email = $_POST['email'];
+
+    // gather input from login page
+    $email = $_POST['username'];
     $password = $_POST['password'];
-
-    $verifyUser = "SELECT * from users where 
+    
+    // SQL check for inputs in the database
+    $query = "SELECT * from users where 
     email = '$email' AND password = '$password'";
-    $verifyCheck = mysqli_query($con, $verifyUser);
-    $length = mysqli_num_rows($verifyCheck);
+    $verifyCheck = $con->query($query);
+    
+    // If the query returns only a single unique result...
+    $rows = mysqli_num_rows($verifyCheck);
+    if ($rows == 1) {
+    
+    // convert result into associative array
+    $userInfo = $verifyCheck->fetch_all(MYSQLI_ASSOC);
+    
+    //Store all info as Session variables
+    session_start();   
+    $_SESSION['firstname'] = $userInfo[0]['firstname'];
+    $_SESSION['email'] = $userInfo[0]['email'];
+    $_SESSION['lastname'] = $userInfo[0]['lastname'];
+    $_SESSION['id'] = $userInfo[0]['id'];
+    $_SESSION['school'] = $userInfo[0]['school'];
+    $_SESSION['classlist'] = array();
+    session_write_close();
 
-    if ($length == 1) {
-    $_SESSION['firstname'] = $verifyCheck['firstname'];
-    $_SESSION['email'] = $verifyCheck['email'];
-    $_SESSION['lastname'] = $verifyCheck['lastname'];
-    header('location:..\public\dashboard.php');
+    //free some memory
+    $verifyCheck->free_result();
+    //send user to dashboard
+    header('location:..\..\public\dashboard.php');
     } else {
-    header('location:..\public\dashboard.php'); // change to index when it actually works.
+    //return user to index
+    header('location:..\..');
     }
+    //close database connection
+    $con->close();
 }
 
 ?>

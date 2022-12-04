@@ -21,7 +21,7 @@ Due Date: December 4th 2022
         <img src="public/images/Logo.png" alt="Logo">
     </header>
     <main>
-        <form action="./private/functions/userlogin.php" method="post">
+        <form enctype=”multipart/form-data” action="./private/functions/userlogin.php" method="post">
             <fieldset>
                 <label for="username">User E-mail:</label>
             <input type="email" name="username" id="username">
@@ -35,6 +35,5 @@ Due Date: December 4th 2022
             <button type="submit" formaction="./public/registration.php">Create Account</button>
         </form>
     </main>
-    <a href="dashboard.php">click here</a>
 </body>
 </html>
