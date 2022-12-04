@@ -25,7 +25,18 @@ textarea {
     font-size: medium;
 }
 
+<<<<<<< HEAD
 
+=======
+#indexfield {
+    background-color: white;
+    display: block;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    block-size: 200px;
+}
+>>>>>>> 4f802a9691b652c2aa133e4a0d4352709c538161
 
 #regfield {
     background-color: white;
