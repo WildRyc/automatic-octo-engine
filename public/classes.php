@@ -9,8 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizBuddy - classes</title>
     <script src="./scripts/tableSorter.js" defer></script>
-</head>
-<body>
+
     <?php
     include('..\private\functions\header.php');
     ?>
@@ -62,6 +61,7 @@ if ($stmt = $con->prepare($query2)) {
 </table>
 <input type="submit" value="Submit">
 </form>
+<a href="addclass.php">Can't find your class?</a>
 </div>
     <?php
     include_once('..\private\functions\footer.php');

@@ -8,8 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizBuddy - Dashboard</title>
-</head>
-<body>
+
     <?php
     include('..\private\functions\header.php');
     ?>
@@ -18,7 +17,7 @@
     <div id="courses"><h3>Courses</h3>
     <ul>
     <?php
-    include_once('..\private\functions\courses.php');
+    include_once('..\private\functions\mycourses.php');
     ?>
     <li><a href="./classes.php">Add or change a class?</a></li>
     </ul>
