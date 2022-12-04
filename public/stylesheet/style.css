@@ -25,15 +25,13 @@ textarea {
     font-size: medium;
 }
 
-fieldset {
+#indexfield {
     background-color: white;
     display: block;
     width: 50%;
     margin-top: 10px;
     margin-bottom: 10px;
-    block-size: 180px;
-    resize: both;
-    overflow: auto;
+    block-size: 200px;
 }
 
 #regfield {

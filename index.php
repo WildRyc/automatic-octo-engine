@@ -24,7 +24,7 @@ Due Date: December 4th 2022
     </header>
     <main>
         <form enctype=”multipart/form-data” action="./private/functions/userlogin.php" method="post">
-            <fieldset>
+            <fieldset id="indexfield">
                 <label for="username">User E-mail:</label>
             <input type="email" name="username" id="username">
             <br>
