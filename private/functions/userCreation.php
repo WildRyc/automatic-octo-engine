@@ -5,28 +5,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $password = $_POST['password'];
-
-    $verifyUser = "Select * from users where 
-    email = $email";
-    $verifyCheck = mysqli_query($con, $verifyUser);
-    
-    $anythingThere = mysqli_num_rows($verifyCheck);
-    if ($row < 1){
-        $creation = "INSERT INTO users   
+    $password2 = $_POST['password2'];
+    $emailCheck ="";
+    $verifyUser = "Select email from users where 
+    email = ?";
+    $stmt = $con->prepare($verifyUser); 
+    $stmt->bind_param("s",$email);
+    $stmt->execute();
+    $stmt->store_result();
+    if ($stmt->num_rows == 0 ) {
+    $creation = "INSERT INTO users   
         (firstname, lastname, email, password, school) 
-        VALUES ($firstname, $lastname, $email,
-        $password, 1)";   
-    }
+        VALUES (?, ?, ?,
+        ?, 1)";
+    $stmt->close(); 
 
-    
-
-if ($con->query($creation) == TRUE) {
-    echo "New user created successfully";
-    header('location:dashboard.php');
+    $stmt = $con->prepare($creation); 
+    $stmt->bind_param("ssss",$firstname,$lastname,$email,$password);
+    $stmt->execute();
+    if ($stmt->execute() === true ) {
+        echo "New user created successfully";
+        header('location:dashboard.php');
     } else {
-    header('location:index.php');
-    echo "Error: " . $creation . "<br>" . $con->error;
-}
+        header('location:index.php');
+        echo "Error: " . $creation . "<br>" . $con->error;
+    }
+    
+    } else {
+        echo '<script type="text/javascript">
+        window.alert("User with this email already exists!")
+        </script>';
+    }
 }
 $con->close();
 ?>
