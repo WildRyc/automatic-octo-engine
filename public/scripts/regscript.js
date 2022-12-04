@@ -1,6 +1,6 @@
 // written by Kyle Ryc
 // for CST8285
-//modified by Renato Simoes
+//modified by Renato Simoes and Jordan Chen
 
 //define a global variables
 let thisForm = document.forms[0];
@@ -160,6 +160,11 @@ function validate() {
         emailInputValue = emailInput.value.toLowerCase();
     }
     return validated;
+}
+
+//Alert popup "Success" when button is clicked
+function successmessage() {
+    alert("Success!");
 }
 
 // Event Listeners
