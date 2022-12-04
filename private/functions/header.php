@@ -9,3 +9,10 @@ print_r("<div id='lastname'>$lastname</div>");
 print_r("<div id='email'>$email</div>");
 print_r("<div id='idnumber'>$id</div>");
 ?>
+
+<div style="float:right">
+    <form name="logoutheader" method="post" action="userlogout.php">
+    <button type="submit">Logout</button>
+    </form>
+</div>
+

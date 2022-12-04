@@ -4,7 +4,6 @@ Student Names: Jordan Chen, Kyle Ryc, Renato Simoes
 Student Number: 041050455, 040778889, 040908766
 Lab Professor: Hala Own
 Due Date: December 4th 2022
-COMMENT COMMENT COMMENT
 -->
 
 <!DOCTYPE html>
