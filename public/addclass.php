@@ -46,6 +46,7 @@
         }
         ?>
         </datalist>
+        <label for="classCode">Enter Class Code:</label>
         <input type="text" name="classCode" id="classCode" default="Enter Class Code Here">
         
         <select name="choice" id="choice">
