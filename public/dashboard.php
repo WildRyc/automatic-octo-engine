@@ -17,7 +17,7 @@
     <div id="courses"><h3>Courses</h3>
     <ul>
     <?php
-    include_once('..\private\functions\courses.php');
+    include_once('..\private\functions\mycourses.php');
     ?>
     <li><a href="./classes.php">Add or change a class?</a></li>
     </ul>
