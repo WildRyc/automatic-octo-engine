@@ -12,7 +12,7 @@
     
     ?>
     <form action=".\classadder.php" method="POST">
-        <label for="school">Choose a school:</label>
+        <label for="school">Choose  school:</label>
         <select name="schoolId" id="schoolId">
         <?php
         include_once('..\private\functions\serverconnect.php');
@@ -24,6 +24,9 @@
             while ($stmt->fetch()) {
                 printf("<option value='%s %s'>%s</option>\n", $schoolID, $schoolName, $schoolName);
             }
+
+        
+    
 
         }?>
         </select>

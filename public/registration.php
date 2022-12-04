@@ -6,6 +6,9 @@ Lab Professor: Hala Own
 Due Date: December 4th 2022
 -->
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,30 +26,30 @@ Due Date: December 4th 2022
         <h1>User Registration</h1>
     </header>
     <main>
-        <form action="/userlogin.php" action=registration.html" method="get" onsubmit="event.preventDefault()">
+        <form action="localhost/automatic-octo-engine/private/functions/userCreation.php" method="post" onsubmit="success()">
         <fieldset id="regfield">
         <p>
             <label>Username/E-mail<label>
-            <input type="email" name="username" id="username"> 
+            <input type="emailfield" name="email" id="email"> 
         </p>
         <p>
             <label>First Name</label>
-            <input type="firstname" name="firstname" id="firstname">
+            <input type="firstnamefield" name="firstname" id="firstname">
         </p>
         <p>
             <label>Last Name</label>
-            <input type="lastname" name="lastname" id="lastname">
+            <input type="lastnamefield" name="lastname" id="lastname">
         </p>  
         <p>
             <label>Password</label>
-            <input type="password" name="password" id="password">
+            <input type="passwordfield" name="password" id="password">
         </p>
         <p>
             <label>Confirm Password</label>
-            <input type="password" name="password2" id="password2">
+            <input type="passwordfield2" name="password2" id="password2">
         </p>
         <br>
-        <button type="submit" formaction="../private/functions" method="post">Create Account</button>
+        <button type="submit" onlick="successmessage()">Create Account</button>
         </fieldset>
         </form>
     </main>

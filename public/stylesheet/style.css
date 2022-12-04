@@ -71,6 +71,7 @@ table {
     display: grid;
     border-collapse: collapse;
     min-width: fit-content;
+    overflow-x: auto;
 }
 
 th,td {
