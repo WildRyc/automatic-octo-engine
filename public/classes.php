@@ -8,20 +8,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizBuddy - classes</title>
+    <script src="./scripts/tableSorter.js" defer></script>
 </head>
 <body>
     <?php
     include('..\private\functions\header.php');
     ?>
-    
+<input type="text" id="myInput0" class="search" onkeyup="filterTable('myInput0', 0)" placeholder="Search by Coure Names.." size=100>
+<input type="text" id="myInput1" class="search" onkeyup="filterTable('myInput1', 1)" placeholder="Search by Codes.." size=100>
+<input type="text" id="myInput2" class="search" onkeyup="filterTable('myInput2', 2)" placeholder="Search by Schools.." size=100>
+<input type="text" id="myInput3" class="search" onkeyup="filterTable('myInput3', 3)" placeholder="Search by Enrollement" size=100>
 <div class="classes">
+
 <form action="..\private\functions\updatecourses.php" method="POST">
-<table>
+<table id="classesTable">
     <tr>
-        <th>Name</th>
-        <th>Code</th>
-        <th>School</th>
-        <th>Enrolled?</th>
+        <th onclick="sortTable(0)">Name</th>
+        <th onclick="sortTable(1)">Code</th>
+        <th onclick="sortTable(2)">School</th>
+        <th onclick="sortTable(3)">Enrolled?</th>
     </tr>
 
 <?php
