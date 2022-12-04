@@ -1,17 +1,15 @@
 //inspired by https://www.w3schools.com/howto/howto_js_sort_table.asp
 var table = document.getElementById('classesTable');
+
 function innerLower(tag) {
     return tag.innerHTML.toLowerCase();
 }
-function moveBefore(object,element){
+function moveBefore(object, element){
     return object[element].parentNode.insertBefore(object[element+1],object)
 }
 
 function returnElement(elementId) {
     document.getElementById(elementId);
-}
-function displayMe(element){
-    console.log(element.id);
 }
 
 function filterTable(inputID, column) {
@@ -29,7 +27,6 @@ function filterTable(inputID, column) {
             } else {
                 tableRows[i].style.display = "none";
             }
-
         }
     }
 }
@@ -59,7 +56,8 @@ function sortTable(columnNumber) {
             }
         }
         if (shouldSwitch){
-            moveBefore(rows,i);
+            // moveBefore(rows,i);
+            rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
             switching=true;
             switchCounter++;
         } else {
