@@ -17,7 +17,6 @@
 <input type="text" id="myInput0" class="search" onkeyup="filterTable('myInput0', 0)" placeholder="Search by Coure Names.." size=100>
 <input type="text" id="myInput1" class="search" onkeyup="filterTable('myInput1', 1)" placeholder="Search by Codes.." size=100>
 <input type="text" id="myInput2" class="search" onkeyup="filterTable('myInput2', 2)" placeholder="Search by Schools.." size=100>
-<input type="text" id="myInput3" class="search" onkeyup="filterTable('myInput3', 3)" placeholder="Search by Enrollement" size=100>
 <div class="classes">
 
 <form action="..\private\functions\updatecourses.php" method="POST">

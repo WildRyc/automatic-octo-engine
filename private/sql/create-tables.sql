@@ -7,7 +7,7 @@ use quizbud;
 
 DROP TABLES IF EXISTS users, quizes, questions, classes, schools, attempts, answers, attempts_answers, courses ;
 
-create user 'demo'@'localhost' identified by 'password';
+CREATE USER 'demo'@'localhost' identified by 'password';
 GRANT ALL PRIVILEGES on quizbud.* to 'demo'@'localhost';
 
 
