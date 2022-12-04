@@ -9,11 +9,17 @@ print_r("<div id='lastname'>$lastname</div>");
 print_r("<div id='email'>$email</div>");
 print_r("<div id='idnumber'>$id</div>");
 ?>
-
+<link rel="icon" type="image/x-icon" href="./images/favicon.png">
+<link rel="stylesheet" href="./stylesheet/style.css">
+</head>
+<body>
+<header>
 <img src="images/Logo.png" alt="Logo">
 <div style="float:right">
     <form name="logoutheader" method="post" action="userlogout.php">
     <button type="submit">Logout</button>
     </form>
 </div>
+</header>
+
 

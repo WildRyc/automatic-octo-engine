@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizBud - Add a Class</title>
-</head>
-<body>
+
     <?php include_once('..\private\functions\header.php');
     ?>
     <form action=".\public\classadder.php" method="POST">

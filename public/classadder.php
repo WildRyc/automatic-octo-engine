@@ -9,8 +9,7 @@ include_once("serverconnect.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Change</title>
-</head>
-<body>
+
 <?php include_once('..\private\functions\header.php');
 
 //Only do if the form sent via POST
