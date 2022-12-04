@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $anythingThere = mysqli_num_rows($verifyCheck);
     if ($row < 1){
         $creation = "INSERT INTO users   
-        (firstname, lastname, email, password,school) 
+        (firstname, lastname, email, password, school) 
         VALUES ($firstname, $lastname, $email,
         $password, 1)";   
     }
