@@ -26,7 +26,7 @@ Due Date: December 4th 2022
         <h1>User Registration</h1>
     </header>
     <main>
-        <form action="localhost/automatic-octo-engine/private/functions/userCreation.php" method="post" onsubmit="success()">
+        <form action="../private/functions/userCreation.php" method="post" onsubmit="success()">
         <fieldset id="regfield">
         <p>
             <label>Username/E-mail<label>
