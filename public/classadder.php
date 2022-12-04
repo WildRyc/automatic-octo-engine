@@ -14,37 +14,33 @@ include_once("../private/functions/serverconnect.php");
 
 //Only do if the form sent via POST
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $classInfo = $_POST['className'];
-    echo "\nclassInfo" . $classInfo;
-
+    $className = $_POST['className'];
     $classCode = $_POST['classCode'];
-    $classInfo = explode(" ", $classInfo);
-    $className = $classInfo[0];
-    $classId = $classInfo[1];
 
     $schoolInfo = $_POST['schoolId'];
     $schoolInfo = explode(" ",$schoolInfo);
-    $schoolId = $schoolInfo[0];
+    $schoolId = (int)$schoolInfo[0];
     $schoolName = $schoolInfo[1];
     $choice = $_POST['choice'];
     
     // debug print
-    echo "\nclassCode $classCode" ;
-    echo "\nclassName" . $className;
-    echo "\nclassId" . $classId;
-
-    echo "\nschoolInfo" . $classId;
-    echo "\nschoolId" . $schoolId;
-    echo "\nschoolName" . $schoolName;
-    echo "\nchoice" . $choice;
+    echo "<p>classCode:$classCode</p>" ;
+    echo "<p>className:$className</p>";
+    echo "<p>ID:$id</p>";
+    echo "<p>schoolId:$schoolId</p>";
+    echo "<p>schoolName:$schoolName</p>";
+    echo "<p>choice:$choice</p>";
     echo "<div class='className'>Class Name: $className</div>";
     echo "<div class='school'>School: $schoolName</div>";
     echo "<div class='classCode'>Class Code: $classCode</div>";
     echo "<div class='choice'>Operation Choice: $choice</div>";
 
     if ($choice == "remove") {
-        $deletionQuery = "DELETE FROM courses where id = $classId; DELETE FROM classes where id = $classId";
-        if ($con->query($deletionQuery) === true ) {
+        $deletionQuery = "DELETE FROM courses where classid = ?; DELETE FROM classes where id = ?";
+        $stmt = $con->prepare($deletionQuery); 
+        $stmt->bind_param("ii",$classid,$classid);
+        $stmt->execute();
+        if ($stmt->execute() === true ) {
             $message = "Record deleted successfully";
         } else {
             $message = "Error deleting record: " . $con->error;
@@ -52,17 +48,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } elseif ($choice == "add") {
         $insertionQuery = "INSERT INTO classes 
         (schoolid, classcode, classname, createdby) VALUES
-        ($schoolId, $classCode, $className, $id)";
-        if ($con->query($insertionQuery) === true ) {
+        (?, ?, ?, ?)";
+        $stmt = $con->prepare($insertionQuery); 
+        $stmt->bind_param("issi",$schoolId,$classCode,$className,$id);
+        $stmt->execute();
+        if ($stmt->execute() === true ) {
             $message = "Class added successfully";
         } else {
             $message = "Error adding class: " . $con->error;
         }
     }
+
     //send user to courses
     echo $message;
     sleep(3);
-    header('location:..\..\public\courses.php');
+    header('location:..\public\classes.php');
     $con->close();
 }
 session_write_close();

@@ -9,6 +9,7 @@
     <title>QuizBud - Add a Class</title>
 
     <?php include_once('..\private\functions\header.php');
+    
     ?>
     <form action=".\classadder.php" method="POST">
         <label for="school">Choose a school:</label>
@@ -26,6 +27,7 @@
 
         }?>
         </select>
+        <br>
         <label for="className">Enter Class Name:</label>
         <input list="classNames" name="className" id="className">
         <datalist id="classnames">
@@ -34,17 +36,21 @@
 
         if ($stmt = $con->prepare($query)) {
             $stmt->execute();
-            $stmt->bind_result($classname);
+            $stmt->bind_result($classname, $classid);
             while ($stmt->fetch()) {
-                printf("<option value=\"%s %s\">\n", $classname);
+                printf("<option value=\"%s %s\">%s</option>\n", $classname, $classid, $classname);
             }
-            $stmt->close();
+            
         }
         ?>
         </datalist>
+        <br>
         <label for="classCode">Enter Class Code:</label>
-        <input type="text" name="classCode" id="classCode" default="Enter Class Code Here">
-        
+        <input list="text" name="classCode" id="classCode" default="Enter Class Code Here">
+        <datalist id="classCodes">
+
+        </datalist>
+        <br>
         <select name="choice" id="choice">
             <option value="add">Add</option>
             <option value="remove">Remove</option>
@@ -52,7 +58,44 @@
         <input type="submit" value="Submit">
 
     </form>
+    <script>
+    var data = <?php
+        // based on https://stackoverflow.com/questions/383631/json-encode-mysql-results
+        $classlist = $con->query('SELECT * FROM classlist');
+        $rows = $classlist->fetch_all(MYSQLI_ASSOC);
+        echo json_encode($rows);
+        $stmt->close();
+        ?>;
+        
+        console.log(data);
+    
+    var chooser = document.getElementById('choice');
+    var choice = chooser.value;
+    var schoolChoice = document.getElementById('schoolId');
+    var school = schoolChoice.value.slice(2);
+    schoolChoice.addEventListener('change', ()=>
+{    school = schoolChoice.value.slice(2);});
+    var className = document.getElementById('className');
+    var classCodes = document.getElementById('classCodes');
 
+
+    
+    chooser.addEventListener('change', function() {
+        choice = chooser.value;
+        if (choice == "remove") {
+        
+        var option = document.createElement('option');
+        option.value ="testing";
+        option.text = "testing";
+        classCodes.appendChild(option);
+        
+        
+        
+    }
+    } )
+    
+    
+    </script>
     <?php include_once('..\private\functions\footer.php');
     ?>
 </body>
