@@ -24,21 +24,20 @@
             while ($stmt->fetch()) {
                 printf("<option value='%s %s'>%s</option>\n", $schoolID, $schoolName, $schoolName);
             }
-            $stmt->close();
+
         }?>
         </select>
-        <input type="text" list="classNames" name="className" id="className" default="Enter Class Name Here">
+        <label for="className">Enter Class Name:</label>
+        <input list="classNames" name="className" id="className">
         <datalist id="classnames">
-        <?php
-        include_once('..\private\functions\serverconnect.php');
-        
+        <?php        
         $query = "SELECT classname FROM classes";
 
         if ($stmt = $con->prepare($query)) {
             $stmt->execute();
             $stmt->bind_result($classname);
             while ($stmt->fetch()) {
-                printf("<option>%s</option>\n", $classname);
+                printf("<option value=\"%s\">\n", $classname);
             }
             $stmt->close();
         }
