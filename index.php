@@ -14,6 +14,8 @@ Due Date: December 4th 2022
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kyle Ryc">
     <link rel="stylesheet" href="public/stylesheet/style.css">
+    <script src="./scripts/validation.js" defer></script>
+    <script src="./scripts/regscript.js" defer></script>
     <title>QuizBud: Landing Page</title>
     <link rel="icon" type="image/x-icon" href="./public/images/favicon.ico">
 </head>
@@ -22,8 +24,8 @@ Due Date: December 4th 2022
         <img src="public/images/Logo.png" alt="Logo">
     </header>
     <main>
-        <form enctype=”multipart/form-data” action="./private/functions/userlogin.php" method="post">
-            <fieldset>
+        <form name="myForm" action="./private/functions/userlogin.php" onsubmit="return validateForm()" method="post">
+            <fieldset id="indexfield">
                 <label for="username">User E-mail:</label>
             <input type="email" name="username" id="username">
             <br>
@@ -33,7 +35,7 @@ Due Date: December 4th 2022
             <button type="submit">Login</button>
             </fieldset>
             <p>New user?</p>
-            <button type="submit" formaction="./public/registration.php">Create Account</button>
+            <button type="submit">Create Account</button>
         </form>
     </main>
 </body>
