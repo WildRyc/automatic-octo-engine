@@ -6,7 +6,8 @@ ALTER DATABASE quizbud default character set utf8mb4 COLLATE utf8mb4_unicode_ci;
 use quizbud;
 
 DROP TABLES IF EXISTS users, quizes, questions, classes, schools, attempts, answers, attempts_answers, courses ;
-
+DROP USER 'demo'@'localhost';
+DROP VIEW classlist;
 CREATE USER 'demo'@'localhost' identified by 'password';
 GRANT ALL PRIVILEGES on quizbud.* to 'demo'@'localhost';
 
@@ -220,6 +221,11 @@ INSERT INTO courses values
 (3,13),
 (4,14); 
 
+CREATE VIEW classlist AS SELECT classes.classname, classes.classcode, schools.schoolname, classes.id FROM classes 
+LEFT JOIN courses on classes.id = courses.classid
+LEFT JOIN schools on classes.schoolid = schools.id;
+
+SELECT * FROM classlist;
 
 
 
