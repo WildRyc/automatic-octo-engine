@@ -9,27 +9,52 @@
     <title>QuizBud - Add a Class</title>
 </head>
 <body>
-    <?php include_once('.\private\functions\header.php');
+    <?php include_once('..\private\functions\header.php');
     ?>
-    <form action="POST">
+    <form action=".\public\classadder.php" method="POST">
         <label for="school">Choose a school:</label>
+        <select name="schoolId" id="schoolId">
         <?php
-        include_once('.\private\functions\serverconnect.php');
+        include_once('..\private\functions\serverconnect.php');
         
         $query = "SELECT id, schoolname FROM schools";
         if ($stmt = $con->prepare($query)) {
             $stmt->execute();
             $stmt->bind_result($schoolID, $schoolName);
             while ($stmt->fetch()) {
-                printf("<option value='%s'>%s</option>\n", $schoolID, $schoolName);
+                printf("<option value='%s %s'>%s</option>\n", $schoolID, $schoolName, $schoolName);
             }
             $stmt->close();
         }?>
-        <input type="text" name="" id="">
+        </select>
+        <input type="text" list="classNames" name="className" id="className" default="Enter Class Name Here">
+        <datalist id="classnames">
+        <?php
+        include_once('..\private\functions\serverconnect.php');
+        
+        $query = "SELECT classname FROM classes";
+
+        if ($stmt = $con->prepare($query)) {
+            $stmt->execute();
+            $stmt->bind_result($classname);
+            while ($stmt->fetch()) {
+                printf("<option>%s</option>\n", $classname);
+            }
+            $stmt->close();
+        }
+        ?>
+        </datalist>
+        <input type="text" name="classCode" id="classCode" default="Enter Class Code Here">
+        
+        <select name="choice" id="choice">
+            <option value="add">Add</option>
+            <option value="remove">Remove</option>
+        </select>        
         <input type="submit" value="Submit">
+
     </form>
 
-    <?php include_once('.\private\functions\footer.php');
+    <?php include_once('..\private\functions\footer.php');
     ?>
 </body>
 </html>
