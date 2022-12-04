@@ -24,13 +24,8 @@ Due Date: December 4th 2022
         <img src="public/images/Logo.png" alt="Logo">
     </header>
     <main>
-<<<<<<< HEAD
         <form name="myForm" action="./private/functions/userlogin.php" onsubmit="return validateForm()" method="post">
             <fieldset>
-=======
-        <form enctype=”multipart/form-data” action="./private/functions/userlogin.php" method="post">
-            <fieldset id="indexfield">
->>>>>>> 4f802a9691b652c2aa133e4a0d4352709c538161
                 <label for="username">User E-mail:</label>
             <input type="email" name="username" id="username">
             <br>
