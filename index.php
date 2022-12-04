@@ -15,7 +15,7 @@ Due Date: December 4th 2022
     <meta name="author" content="Kyle Ryc">
     <link rel="stylesheet" href="public/stylesheet/style.css">
     <title>QuizBud: Landing Page</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./public/images/favicon.ico">
 </head>
 <body>
     <header>
