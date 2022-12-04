@@ -62,6 +62,7 @@ if ($stmt = $con->prepare($query2)) {
 </table>
 <input type="submit" value="Submit">
 </form>
+<a href="addclass.php">Can't find your class?</a>
 </div>
     <?php
     include_once('..\private\functions\footer.php');
