@@ -24,34 +24,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $choice = $_POST['choice'];
     
     // debug print
-    echo "<p>classCode:$classCode</p>" ;
-    echo "<p>className:$className</p>";
-    echo "<p>ID:$id</p>";
-    echo "<p>schoolId:$schoolId</p>";
-    echo "<p>schoolName:$schoolName</p>";
-    echo "<p>choice:$choice</p>";
+    // echo "<p>classCode:$classCode</p>" ;
+    // echo "<p>className:$className</p>";
+    // echo "<p>ID:$id</p>";
+    // echo "<p>schoolId:$schoolId</p>";
+    // echo "<p>schoolName:$schoolName</p>";
+    // echo "<p>choice:$choice</p>";
     echo "<div class='className'>Class Name: $className</div>";
     echo "<div class='school'>School: $schoolName</div>";
     echo "<div class='classCode'>Class Code: $classCode</div>";
     echo "<div class='choice'>Operation Choice: $choice</div>";
+    $searchQuery ="SELECT * FROM classes where classname = '$className' and classcode = '$classCode'";
+    $result = $con->query($searchQuery);
+    $values = $result->fetch_assoc();
+    $classId = $values['id'];
+    echo "<div class='classid'>Class ID: $classId</div>";
 
     if ($choice == "remove") {
-        $deletionQuery = "DELETE FROM courses where classid = ?; DELETE FROM classes where id = ?";
-        $stmt = $con->prepare($deletionQuery); 
-        $stmt->bind_param("ii",$classid,$classid);
-        $stmt->execute();
-        if ($stmt->execute() === true ) {
-            $message = "Record deleted successfully";
-        } else {
-            $message = "Error deleting record: " . $con->error;
-        }
+        $deletionQuery1 = "DELETE FROM courses where classid = $classId"; 
+        $deletionQuery2 = "DELETE FROM classes where id = $classId";
+        // $stmt = $con->prepare($deletionQuery); 
+        // $stmt->bind_param("ii",$classId,$classId);
+        $con->query($deletionQuery1);
+        $con->query($deletionQuery2);
+        $message = "Record deleted successfully";
+        // } else {
+        //     $message = "Error deleting record: " . $con->error;
+        // }
     } elseif ($choice == "add") {
         $insertionQuery = "INSERT INTO classes 
         (schoolid, classcode, classname, createdby) VALUES
         (?, ?, ?, ?)";
         $stmt = $con->prepare($insertionQuery); 
         $stmt->bind_param("issi",$schoolId,$classCode,$className,$id);
-        $stmt->execute();
         if ($stmt->execute() === true ) {
             $message = "Class added successfully";
         } else {

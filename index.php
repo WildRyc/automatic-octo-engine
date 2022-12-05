@@ -35,7 +35,7 @@ Due Date: December 4th 2022
             <button type="submit">Login</button>
             </fieldset>
             <p>New user?</p>
-            <button type="submit">Create Account</button>
+            <button type="submit" formaction="./public/registration.php">Create Account</button>
         </form>
     </main>
 </body>

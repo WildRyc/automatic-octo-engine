@@ -59,9 +59,10 @@ if ($stmt = $con->prepare($query2)) {
 }
 ?>
 </table>
-<input type="submit" value="Submit">
+<button type="submit" value="submit">Update Enrollment</button>
+<button><a href="addclass.php">Add or remove a class?</a>
+</button>
 </form>
-<a href="addclass.php">Can't find your class?</a>
 </div>
     <?php
     include_once('..\private\functions\footer.php');
