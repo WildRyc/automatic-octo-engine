@@ -1,17 +1,21 @@
-//inspired by https://www.w3schools.com/howto/howto_js_sort_table.asp
+
 var table = document.getElementById('classesTable');
 
+// convert contents of tag to lowercase
 function innerLower(tag) {
     return tag.innerHTML.toLowerCase();
 }
+// not actually working as intended, sorry!
 function moveBefore(object, element){
     return object[element].parentNode.insertBefore(object[element+1],object)
 }
 
+// a practice in circular logic
 function returnElement(elementId) {
     document.getElementById(elementId);
 }
 
+// allows the filtering to operate on a specific column
 function filterTable(inputID, column) {
     var inputElement = document.getElementById(inputID);
     var filtering = inputElement.value.toUpperCase();
@@ -31,6 +35,7 @@ function filterTable(inputID, column) {
     }
 }
 
+//inspired by https://www.w3schools.com/howto/howto_js_sort_table.asp
 function sortTable(columnNumber) {
     var direction = "ascending";
     var switchCounter = 0;
@@ -55,8 +60,8 @@ function sortTable(columnNumber) {
             }
             }
         }
+        // implementing bubble sorting very slowly
         if (shouldSwitch){
-            // moveBefore(rows,i);
             rows[i].parentNode.insertBefore(rows[i+1], rows[i]);
             switching=true;
             switchCounter++;

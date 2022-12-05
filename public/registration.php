@@ -23,9 +23,10 @@ Due Date: December 4th 2022
 <body>
     <header>
         <img src="images/Logo.png" alt="Logo">
-        <h1>User Registration</h1>
+        
     </header>
     <main>
+    <h1>User Registration</h1>
         <form action="../private/functions/userCreation.php" method="post" onsubmit="success()">
         <fieldset id="regfield">
         <p>

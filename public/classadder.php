@@ -14,9 +14,10 @@ include_once("../private/functions/serverconnect.php");
 
 //Only do if the form sent via POST
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    //declare some variables
     $className = $_POST['className'];
     $classCode = $_POST['classCode'];
-
     $schoolInfo = $_POST['schoolId'];
     $schoolInfo = explode(" ",$schoolInfo);
     $schoolId = (int)$schoolInfo[0];
@@ -30,28 +31,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // echo "<p>schoolId:$schoolId</p>";
     // echo "<p>schoolName:$schoolName</p>";
     // echo "<p>choice:$choice</p>";
+
+    //Display choices made on previous page
     echo "<div class='className'>Class Name: $className</div>";
     echo "<div class='school'>School: $schoolName</div>";
     echo "<div class='classCode'>Class Code: $classCode</div>";
     echo "<div class='choice'>Operation Choice: $choice</div>";
+
+    // get the classID by querying classes
     $searchQuery ="SELECT * FROM classes where classname = '$className' and classcode = '$classCode'";
     $result = $con->query($searchQuery);
     $values = $result->fetch_assoc();
     $classId = $values['id'];
     echo "<div class='classid'>Class ID: $classId</div>";
 
+    // delete class record if user chose to remove, cascading through courses as necessary
     if ($choice == "remove") {
         $deletionQuery1 = "DELETE FROM courses where classid = $classId"; 
         $deletionQuery2 = "DELETE FROM classes where id = $classId";
-        // $stmt = $con->prepare($deletionQuery); 
-        // $stmt->bind_param("ii",$classId,$classId);
+
         $con->query($deletionQuery1);
         $con->query($deletionQuery2);
         $message = "Record deleted successfully";
-        // } else {
-        //     $message = "Error deleting record: " . $con->error;
-        // }
-    } elseif ($choice == "add") {
+
+    } 
+    // insert class record if user to add, no cascading through courses as no users are yet enrolled
+    elseif ($choice == "add") {
         $insertionQuery = "INSERT INTO classes 
         (schoolid, classcode, classname, createdby) VALUES
         (?, ?, ?, ?)";
@@ -64,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    //send user to courses
+    //send user to classes table to enroll after displaying resolution
     echo $message;
     sleep(3);
     header('location:..\public\classes.php');

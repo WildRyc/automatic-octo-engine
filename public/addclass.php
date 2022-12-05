@@ -17,6 +17,7 @@
         <?php
         include_once('..\private\functions\serverconnect.php');
         
+        //populate element with list of current schools only
         $query = "SELECT id, schoolname FROM schools";
         if ($stmt = $con->prepare($query)) {
             $stmt->execute();
@@ -31,7 +32,9 @@
         <label for="className">Enter Class Name:</label>
         <input list="classNames" name="className" id="className">
         <datalist id="classnames">
-        <?php        
+        <?php
+        
+        //populate element with list of current classes
         $query = "SELECT classname, id FROM classes";
 
         if ($stmt = $con->prepare($query)) {
@@ -59,6 +62,8 @@
 
     </form>
     <script>
+
+    // this is supposed to help with populating the above fields, but isn't quite working yet --Kyle
     var data = <?php
         // based on https://stackoverflow.com/questions/383631/json-encode-mysql-results
         $classlist = $con->query('SELECT * FROM classlist');
@@ -79,7 +84,7 @@
     var classCodes = document.getElementById('classCodes');
 
 
-    
+    // update fields based on if add or remove has been selected
     chooser.addEventListener('change', function() {
         choice = chooser.value;
         if (choice == "remove") {

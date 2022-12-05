@@ -13,6 +13,7 @@
     <?php
     include('..\private\functions\header.php');
     ?>
+<!-- these are search bars to filter table contents -->
 <input type="text" id="myInput0" class="search" onkeyup="filterTable('myInput0', 0)" placeholder="Search by Coure Names.." size=100>
 <input type="text" id="myInput1" class="search" onkeyup="filterTable('myInput1', 1)" placeholder="Search by Codes.." size=100>
 <input type="text" id="myInput2" class="search" onkeyup="filterTable('myInput2', 2)" placeholder="Search by Schools.." size=100>
@@ -29,7 +30,7 @@
 
 <?php
 include_once("../private/functions/serverconnect.php");
-
+// generate table of classes user is enrolled in
 $query1 = "SELECT classes.id as classid FROM classes   LEFT JOIN courses on classes.id = courses.classid  WHERE courses.userid = $id";
 $enrolledClasses = array();
 
@@ -41,13 +42,14 @@ if ($stmt = $con->prepare($query1)) {
     }
     $stmt->close();
 }
-
+// generate table of all classes
 $query2 = "SELECT * from classlist";
 $enrollment = "";
 if ($stmt = $con->prepare($query2)) {
     $stmt->execute();
     $stmt->bind_result($classname, $classcode, $schoolname, $classid);
     while ($stmt->fetch()) {
+        // checkbox is marked if student is enrolled
         if (in_array($classid,$enrolledClasses)){
             $enrollment = "checked";
         } else {

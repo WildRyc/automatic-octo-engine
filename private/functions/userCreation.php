@@ -1,12 +1,15 @@
 <?php
 include_once('serverconnect.php');
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    // gather user variables
     $email = $_POST['email'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
     
+    //check if the user is in the system already
     $verifyUser = "Select * from users where 
     email = ?";
     $stmt = $con->prepare($verifyUser);
@@ -14,6 +17,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $stmt->execute();
     $stmt->store_result();
     $stmt->fetch();
+
+    // if not, proceed to insert
     if ($stmt->num_rows == 0 ) {
         $creation = "INSERT INTO users   
         (firstname, lastname, email, password, school) 
@@ -26,6 +31,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt2->execute();
         $result = $con->query("Select * from users where 
         email = '$email'");
+        // we have to do this search again to get the ID number the user has gained
+        // as we display it in the header
         if ($result->num_rows == 1 ) {
             $values= $result->fetch_assoc();
             session_start();
