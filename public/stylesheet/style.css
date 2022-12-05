@@ -11,7 +11,7 @@ Content created by: Renato Simoes
 */
 
 head, body {
-    position:static; justify-content:80px;
+    position:static;
     margin: auto;
     max-width: 500px;
     font-family: Arial, Helvetica, sans-serif;
@@ -43,7 +43,6 @@ textarea {
     block-size: 450px;
     flex-wrap: wrap;
     position: relative;
-    white-space: wrap;
     resize: both;
     overflow: auto;
 }
@@ -57,7 +56,6 @@ textarea {
     block-size: 450px;
     flex-wrap: wrap;
     position: relative;
-    white-space: wrap;
     resize: both;
     overflow: auto;
 }
@@ -104,13 +102,13 @@ tr:nth-child(even) td {
 }
 
 img {
-    float: center;
+    float: none;
     margin: 10px;
     max-width: 33%;
 }
 
 #username, #password, #password2, #firstname, #lastname {
-    display: block;
+    display: flex;
     width: 10cm;
     margin-top: 10px;
     margin-bottom: 5px;
@@ -118,13 +116,13 @@ img {
 }
 
 #classid {
-    display: float;
+    display: flex;
     width: 4cm;
     font-size: medium;
 }
 
 #correctanswer, #incorrectanswer1, #incorrectanswer2, #incorrectanswer3 {
-    display: static;
+    display: flex;
     width: 5cm;
     font-size: medium;
     margin: auto;
