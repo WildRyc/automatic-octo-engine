@@ -2,7 +2,7 @@
 <button style="float:right" a href="<?php echo 'index.php'; ?>">Home</a></button>
 <img src="images/Logo.png" alt="Logo">
 <div style="float:right">
-    <form name="logoutheader" method="post" action="userlogout">
+    <form name="logoutheader" method="post" action="../private/functions/userlogout.php">
     <button type="submit">Logout</button>
 </form>
 </div>
