@@ -27,12 +27,15 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-content: stretch;
-    align-items: center;
-    gap:10vw;
+    
 }
-.brandLogo {
-    width:10vw;
+
+footer {
+    position:absolute;
+    bottom:0;
 }
+/* .brandLogo {
+} */
 textarea {
     resize: none;
     font-size: medium;
@@ -41,10 +44,8 @@ textarea {
 #indexfield {
     background-color: white;
     display: block;
-    width: 50%;
     margin-top: 10px;
     margin-bottom: 10px;
-    block-size: 200px;
 }
 
 #regfield {
@@ -116,7 +117,6 @@ tr:nth-child(even) td {
 
 img {
     float: none;
-    margin: 10px;
     max-width: 100%;
 }
 
