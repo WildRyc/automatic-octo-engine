@@ -16,7 +16,7 @@ print_r("<div id='idnumber'>$id</div>");
 <header>
 <img src="images/Logo.png" alt="Logo">
 <div style="float:right">
-    <form name="logoutheader" method="post" action="userlogout.php">
+    <form name="logoutheader" method="post" action="..\private\functions\userLogout.php">
     <button type="submit">Logout</button>
     </form>
 </div>
