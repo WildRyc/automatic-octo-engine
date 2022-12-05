@@ -53,5 +53,8 @@ Due Date: December 4th 2022
         </fieldset>
         </form>
     </main>
+    <?php
+    include_once('../private/functions/footer.php');
+    ?>
 </body>
 </html>

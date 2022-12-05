@@ -38,5 +38,8 @@ Due Date: December 4th 2022
             <button type="submit" formaction="./public/registration.php">Create Account</button>
         </form>
     </main>
+    <?php
+    include_once('./private/functions/footer.php');
+    ?>
 </body>
 </html>
