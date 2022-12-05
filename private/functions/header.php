@@ -2,7 +2,7 @@
 <button style="float:right" a href="<?php echo 'index.php'; ?>">Home</a></button>
 <img src="images/Logo.png" alt="Logo">
 <div style="float:right">
-    <form name="logoutheader" method="post" action="userlogout.php">
+    <form name="logoutheader" method="post" action="userlogout">
     <button type="submit">Logout</button>
 </form>
 </div>
@@ -31,13 +31,6 @@ echo nl2br("Name: $firstname $lastname\n E-mail: $email\r\n ID Number: $id");
 <link rel="stylesheet" href="./stylesheet/style.css">
 </head>
 <body>
-<header>
-<img src="images/Logo.png" alt="Logo">
-<div style="float:right">
-    <form name="logoutheader" method="post" action="..\private\functions\userLogout.php">
-    <button type="submit">Logout</button>
-    </form>
-</div>
-</header>
+<hr>
 
 
