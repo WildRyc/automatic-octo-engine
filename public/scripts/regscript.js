@@ -33,8 +33,7 @@ let firstnameError = document.createElement('p');
 let lastnameError = document.createElement('p');
 let passwordError = document.createElement('p');
 let password2Error = document.createElement('p');
-let termsError = document.createElement('p');
-const errorList = [emailError, firstnameError, lastnameError, passwordError, password2Error, termsError];
+const errorList = [emailError, firstnameError, lastnameError, passwordError, password2Error];
 const tagList = ['#username', '#firstname', '#lastname', '#password', '#password2'];
 
 
@@ -102,8 +101,8 @@ function validatePassword2(){
     pass2Error = defaultMessage;
     }
     else {
-    pass2Error = secondPasswordErrorMessage;
-    }
+    pass2Error = password2ErrorMessage;
+    }   
     return pass2Error;
 }
 

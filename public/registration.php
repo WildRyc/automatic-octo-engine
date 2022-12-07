@@ -27,27 +27,27 @@ Due Date: December 4th 2022
     </header>
     <main>
     <h1>User Registration</h1>
-        <form action="../private/functions/userCreation.php" method="post" onsubmit="success()">
+        <form action="../private/functions/userCreation.php" method="post" onsubmit="return validate()">
         <fieldset id="regfield">
         <p>
             <label>Username/E-mail<label>
-            <input type="emailfield" name="email" id="email"> 
+            <input type="text" name="email" id="username"> 
         </p>
         <p>
             <label>First Name</label>
-            <input type="firstnamefield" name="firstname" id="firstname">
+            <input type="text" name="firstname" id="firstname">
         </p>
         <p>
             <label>Last Name</label>
-            <input type="lastnamefield" name="lastname" id="lastname">
+            <input type="text" name="lastname" id="lastname">
         </p>  
         <p>
             <label>Password</label>
-            <input type="passwordfield" name="password" id="password">
+            <input type="password" name="password" id="password">
         </p>
         <p>
             <label>Confirm Password</label>
-            <input type="passwordfield2" name="password2" id="password2">
+            <input type="password" name="password2" id="password2">
         </p>
         <br>
         <button type="submit" onlick="successmessage()">Create Account</button>
