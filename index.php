@@ -35,8 +35,9 @@ Index page for our website
             <br>
             <button type="submit">Login</button>
             </fieldset>
-            <p>New user?</p>
-            <button type="submit" formaction="./public/registration.php">Create Account</button>
+        </form>
+        <form action="./public/registration.php">
+            <button type="submit" id="newuser">Create Account</button>
         </form>
     </main>
     <?php

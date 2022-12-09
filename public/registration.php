@@ -36,7 +36,7 @@ New user page for our website
     <main>
     <h1>User Registration</h1>
         <form action="../private/functions/userCreation.php" method="post" onsubmit="return validate()">
-        <fieldset id="regfield">
+        <fieldset id="indexfield">
         <p>
             <label>Username/E-mail<label>
             <input type="text" name="email" id="username"> 

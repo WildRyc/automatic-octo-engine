@@ -1,5 +1,12 @@
 <?php session_start()
 ?>
+<!--
+Assessment: Assignment 2
+Student Names: Jordan Chen, Kyle Ryc, Renato Simoes
+Student Number: 041050455, 040778889, 040908766
+Lab Professor: Hala Own
+Due Date: December 4th 2022
+User can add a class to the registy of classes-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +18,7 @@
     <?php include_once('..\private\functions\header.php');
     
     ?>
-    <form action=".\classadder.php" method="POST">
+    <form action=".\classadder.php" method="POST" id="#regfield">
     <fieldset>
         <label for="school">Choose a school:</label>
         <select name="schoolId" id="schoolId">
@@ -31,7 +38,7 @@
         </select>
         <br>
         <label for="className">Enter Class Name:</label>
-        <input list="classNames" name="className" id="className">
+        <input list="classnames" name="className" id="className">
         <datalist id="classnames">
         <?php
         
@@ -42,17 +49,17 @@
             $stmt->execute();
             $stmt->bind_result($classname, $classid);
             while ($stmt->fetch()) {
-                printf("<option value=\"%s %s\">%s</option>\n", $classname, $classid, $classname);
+                // printf("<option value=\"%s %s\">%s</option>\n", $classname, $classid, $classname);
+                printf("<option value=\"%s %s\">\n", $classname, $classid);
+
             }
-            
-        }
-        ?>
+        }?>
         </datalist>
         <br>
         <label for="classCode">Enter Class Code:</label>
         <input list="text" name="classCode" id="classCode" default="Enter Class Code Here">
         <datalist id="classCodes">
-
+        
         </datalist>
         <br>
         <select name="choice" id="choice">
