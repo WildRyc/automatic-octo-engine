@@ -52,11 +52,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
     } else {
         // not working as intended, just sends you to the location with no prompt!
-        echo '<script type="text/javascript">
-        window.alert("A user with this email already exists!")
-        </script>';
+        session_start();
+        $_SESSION['msg'] = "User e-mail already in system.";
+        session_write_close();
         sleep(3);
         header('location:../../public/registration.php');
+        
+        
     }
 }
 $con->close();

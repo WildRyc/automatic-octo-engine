@@ -12,6 +12,7 @@
     
     ?>
     <form action=".\classadder.php" method="POST">
+    <fieldset>
         <label for="school">Choose a school:</label>
         <select name="schoolId" id="schoolId">
         <?php
@@ -59,7 +60,7 @@
             <option value="remove">Remove</option>
         </select>        
         <input type="submit" value="Submit">
-
+    </fieldset>
     </form>
     <script>
 

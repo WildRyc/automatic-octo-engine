@@ -23,7 +23,14 @@ Due Date: December 4th 2022
 <body>
     <header>
         <img src="images/Logo.png" alt="Logo">
-        
+        <?php
+        if(isset($_SESSION['msg'])){
+            echo '<pre>';
+            echo $_SESSION['msg'];
+            echo '</pre>';
+        }
+        ?>
+
     </header>
     <main>
     <h1>User Registration</h1>
