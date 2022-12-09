@@ -1,6 +1,5 @@
 <!-- default head content for every page     -->
     <meta charset="utf-8">
-    <link rel="stylesheet" href="<?php echo 'style.css'; ?>" />
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./stylesheet/style.css">
 </head>

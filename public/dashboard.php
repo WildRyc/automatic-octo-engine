@@ -1,6 +1,14 @@
 <?php session_start();
 
 ?>
+<!--
+Assessment: Assignment 2
+Student Names: Jordan Chen, Kyle Ryc, Renato Simoes
+Student Number: 041050455, 040778889, 040908766
+Lab Professor: Hala Own
+Due Date: December 4th 2022
+Dashboard for logged in users
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

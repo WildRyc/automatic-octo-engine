@@ -4,6 +4,7 @@ Student Names: Jordan Chen, Kyle Ryc, Renato Simoes
 Student Number: 041050455, 040778889, 040908766
 Lab Professor: Hala Own
 Due Date: December 4th 2022
+Index page for our website
 -->
 
 <!DOCTYPE html>
@@ -14,8 +15,8 @@ Due Date: December 4th 2022
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kyle Ryc">
     <link rel="stylesheet" href="public/stylesheet/style.css">
-    <script src="./scripts/validation.js" defer></script>
-    <script src="./scripts/regscript.js" defer></script>
+    <script src="public/scripts/validation.js" defer></script>
+    <!-- <script src="public/scripts/regscript.js" defer></script> -->
     <title>QuizBud: Landing Page</title>
     <link rel="icon" type="image/x-icon" href="./public/images/favicon.ico">
 </head>

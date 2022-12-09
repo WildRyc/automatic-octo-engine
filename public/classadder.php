@@ -3,6 +3,17 @@ session_start();
 include_once("../private/functions/serverconnect.php");
 ?>
 <!DOCTYPE html>
+
+<!--
+Assessment: Assignment 2
+Student Names: Jordan Chen, Kyle Ryc, Renato Simoes
+Student Number: 041050455, 040778889, 040908766
+Lab Professor: Hala Own
+Due Date: December 4th 2022
+Displays data of class that was added or removed from the registry.
+At this point, all students have been removed from the class
+if they were previously enrolled.
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
